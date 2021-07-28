@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script  type="application/javascript">
+        window.token = "{{ @Session::get('token') }}";
+    </script>
 </head>
 <body>
     <div id="app">

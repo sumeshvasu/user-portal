@@ -4,7 +4,6 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">Developer List</div>
-
           <table class="table table-hover">
             <thead>
               <tr>
@@ -24,43 +23,19 @@
                 :key="developer.id"
                 class="user-panel"
               >
-                <td class="align-middle">
-                  {{ developer }}
-                  <!-- <img
-                        v-bind:src="'/image/avatar/' + developer.avatar"
-                        class="img-circle elevation-2"
-                      /> -->
-                </td>
-                <td class="align-middle">
-                  {{ developer.email }}
-                </td>
-                <td class="align-middle">
-                  <!-- {{ developer.firstname }} -->
-                </td>
-                <td class="align-middle">
-                  <!-- {{ developer.lastname }} -->
-                </td>
-                <td class="align-middle">
-                  <!-- {{ developer.phone }} -->
-                </td>
-                <td class="align-middle">
-                  <!-- {{ developer.address }} -->
-                </td>
-                <td align="center" class="align-middle">
-                  <!-- <i
-                      @click="editDeveloperModal(developer)"
-                      class="fa fa-pen-fancy blue action-switch"
-                    ></i> -->
-                </td>
-                <td align="center" class="align-middle">
-                  <!-- <i
-                      @click="deleteDeveloper(developer.id)"
-                      class="fa fa-trash-alt red action-switch"
-                    ></i> -->
-                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
             </tbody>
           </table>
+
           <!-- /.card-body -->
           <div class="card-footer">
             <pagination
@@ -78,15 +53,19 @@
 <script>
 export default {
   mounted() {
-    this.loadDevelopers()
-
     console.log('Developer Component Loaded!!!')
+  },
+  created: function () {
+    this.loadDevelopers()
   },
   data() {
     /**
      * Initialise variables and form
      */
     return {
+      headerInfo: {
+        'Content-Type': 'application/json',
+      },
       editmode: false,
       developers: {},
       file: null,
@@ -99,7 +78,6 @@ export default {
         address: '',
         avatar: '',
       }),
-      loader_image: false,
     }
   },
   methods: {
@@ -107,8 +85,13 @@ export default {
      * Load developers
      */
     loadDevelopers() {
-      axios.get('api/developer').then(({ data }) => {
-        this.developers = data
+      const localVar = this
+
+      axios({
+        url: 'api/developer',
+        method: 'get',
+      }).then(function (response) {
+        localVar.developers = response
       })
     },
     /**

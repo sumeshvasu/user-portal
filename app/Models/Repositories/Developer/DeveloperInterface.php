@@ -2,7 +2,7 @@
 /**
  * Interface : DeveloperInterface.
  *
- * This file used to initialise all admin related activities
+ * This file used to initialise all developer related activities
  *
  * @author Sumesh K V <sumeshvasu@gmail.com>
  *
@@ -34,11 +34,6 @@ interface DeveloperInterface
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id);
-
-    /**
-     * Update the specified resource status.
-     */
-    public function updateStatus(Request $request, $id);
 
     /**
      * Remove the specified resource from storage.

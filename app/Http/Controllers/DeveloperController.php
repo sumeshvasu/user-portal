@@ -43,7 +43,7 @@ class DeveloperController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->developer->store($request);
     }
 
     /**
@@ -54,7 +54,7 @@ class DeveloperController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->developer->show($id);
     }
 
     /**
@@ -66,7 +66,7 @@ class DeveloperController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $this->developer->update($request, $id);
     }
 
     /**
@@ -77,6 +77,6 @@ class DeveloperController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->developer->destroy($id);
     }
 }

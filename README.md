@@ -8,6 +8,7 @@ This is a User Portal application for manage users
 
 - [Laravel 6](https://laravel.com/docs/6.x) & VueJs
 - MySql database
+- Repository pattern implemented
 
 ## Requirements
 
